@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib>
 #define MAX_DEGREE 100
 typedef struct {
     int degree;
@@ -35,5 +36,10 @@ int Lead_Exp(poly x){
 }
 
 poly Attach(poly x,float coef,int expon){
-    
+    if (x.coef[expon]!=0){
+        printf("Attach Error: Exponent already exists\n");
+        exit(1);
+    }else{
+        x
+    }
 }
