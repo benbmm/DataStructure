@@ -85,7 +85,7 @@ poly Mult(poly x,poly y){
     poly z=Zero();
     for(int i=0;i<=x.degree;i++){
         for (int j=0;j<=y.degree;j++){
-            z.coef[i+j]=x.coef[i]*y.coef[j];
+            z.coef[i+j]+=x.coef[i]*y.coef[j];
         }
     }
     z.degree=x.degree+y.degree;
@@ -95,12 +95,12 @@ poly Mult(poly x,poly y){
 int main() {
     // 定義兩個多項式 A(x) = 3x^4 + 2x^2 + 1, B(x) = x^3 + 4
     poly A = Zero();
-    A = Attach(A, 3.0, 4);
-    A = Attach(A, 2.0, 2);
-    A = Attach(A, 1.0, 0);
+    A = Attach(A, 1, 2);
+    A = Attach(A, 2, 1);
+    A = Attach(A, 3, 0);
 
     poly B = Zero();
-    B = Attach(B, 1.0, 3);
+    B = Attach(B, 1.0, 1);
     B = Attach(B, 4.0, 0);
 
     // 測試加法
