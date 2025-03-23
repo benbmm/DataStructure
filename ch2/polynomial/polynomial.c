@@ -98,6 +98,7 @@ int main() {
     A = Attach(A, 1, 2);
     A = Attach(A, 2, 1);
     A = Attach(A, 3, 0);
+    A = Attach(A, 271.25, 50);
 
     poly B = Zero();
     B = Attach(B, 1.0, 1);
