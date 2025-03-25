@@ -5,6 +5,7 @@ typedef struct{
     int row;
     int col;
     int val;
+    
 }mat;
 
 #define max_terms 100
@@ -113,7 +114,7 @@ void mult(mat a[],mat b[]){
                 }
             }
         }
-        
+
         for (;a[i].row==row;i++);
         rowBegin=i;
         row=a[i].row;
