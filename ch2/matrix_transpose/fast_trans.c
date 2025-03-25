@@ -21,7 +21,7 @@ void trans(mat a[],mat b[]){
     for(int i=0;i<a[0].col;i++){
         row_term[i]=0;
     }
-    for (int i=0;i<a[0].val;i++){
+    for (int i=1;i<a[0].val;i++){
         row_term[a[i].col]++;
     }
     start[0]=1;
