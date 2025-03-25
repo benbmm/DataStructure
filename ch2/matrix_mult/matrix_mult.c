@@ -104,7 +104,7 @@ void mult(mat a[],mat b[]){
             }else{
                 switch(COMPARE(a[i].col,newB[j].col)){
                     case 0:
-                        sum+=a[i].val*newB[j].val;
+                        sum+=a[i++].val*newB[j++].val;
                         break;
                     case 1:
                         j++;
