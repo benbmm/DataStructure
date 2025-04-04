@@ -1,0 +1,17 @@
+push(1)
+push 2
+empty()
+peek
+pop()
+peek()
+pop()
+empty
+push 3
+push 8
+empty
+peek
+empty
+pop
+peek
+pop
+empty
