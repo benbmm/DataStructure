@@ -27,10 +27,10 @@ void push(list_ptr* ptr,int x){
 }
 
 int pop(list_ptr* ptr){
-    list_ptr temp=*ptr;
-    int x=temp->data;
-    *ptr=temp->next;
-    free(temp);
+    //list_ptr temp=*ptr;
+    int x=(*ptr)->data;
+    *ptr=(*ptr)->next;
+    //free(temp);
     return x;
 }
 int main() {
