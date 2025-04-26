@@ -6,37 +6,31 @@ typedef struct ListNode {
     struct ListNode *next;
 }node;
 
-int palindrome(int n,node* head){
-    if(head==NULL || head->next==NULL){
-        return 1;
-    }
-    node *fast=head,*slow=head;
-    while(fast != NULL && fast->next != NULL){
-        slow=slow->next;
-        fast=fast->next->next;
-    }
-    node *prev=NULL,*next=NULL,*curr=slow;
-    
-    while(curr!=NULL){
-        next=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=next;
-    }
-    node *head2=prev;
-    while(head2!=NULL){
-        if(head->val!=head2->val){
-            return 0;
+node* delete_duplicates(node* head){
+    node* temp=head;
+    while(temp->next!=NULL){
+        if(temp->val==temp->next->val){
+            struct ListNode* duplicate = temp->next;
+            temp->next=temp->next->next;
+            free(duplicate);
+        }else{
+            temp=temp->next;
         }
-        head=head->next;
-        head2=head2->next;
     }
-    return 1;
+    return head;
+}
+
+void printList(node* head, FILE *out) {
+    while (head != NULL) {
+        fprintf(out, "%d ", head->val);
+        head = head->next;
+    }
+    fprintf(out, "\n");
 }
 
 int main() {
-    FILE *inputFile = fopen("testcase2.txt", "r");
-    FILE *outputFile = fopen("output2.txt", "w");
+    FILE *inputFile = fopen("testcase3.txt", "r");
+    FILE *outputFile = fopen("output3.txt", "w");
 
     if (inputFile == NULL || outputFile == NULL) {
         printf("Error opening file!\n");
@@ -67,8 +61,7 @@ int main() {
             }
             tail = temp;  // 更新尾部指針
         }
-
-        fprintf(outputFile,"%d\n",palindrome(n,l1));
+        printList(delete_duplicates(l1),outputFile);
     }
 
     fclose(inputFile);
